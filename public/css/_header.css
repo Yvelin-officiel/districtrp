@@ -24,15 +24,15 @@ nav {
     padding: 15px 30px 15px 30px;
 }
 nav img{    
+    margin-top: 5px;
     height: 35px;
-    padding: 10px;
+    padding: 5px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     align-items: center;
-    height: 6vh;
     margin: 0;
 }
 
@@ -42,4 +42,10 @@ nav .widget:hover {
 }
 nav .widget:active {
     background-color: #2a00d4;
+}
+
+/* space for navbar to not cover new content */
+.space{
+height: 54px;
+    width: auto;
 }

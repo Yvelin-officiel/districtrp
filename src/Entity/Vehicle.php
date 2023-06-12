@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use App\Repository\VehicleRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VehicleRepository::class)]
+#[UniqueEntity('name')]
 class Vehicle
 {
     #[ORM\Id]
@@ -24,6 +26,10 @@ class Vehicle
     #[Assert\NotNull()]
     #[Assert\Positive()]
     private ?float $price = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $image;
+
 
     public function getId(): ?int
     {
@@ -53,4 +59,17 @@ class Vehicle
 
         return $this;
     }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
 }

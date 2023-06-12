@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DistrictRP - Catalogue
+{% endblock %}
+
+{% block body %}
+	<link rel="stylesheet" href="css/catalogue.css">
+	<div class="container">
+
+		<div class="filtre">
+			<h2>Filtre</h2>
+			<h3>Rechercher</h3>
+			<input type="search">
+
+			<h3>Trier par prix</h3>
+			<label>Croissant
+				<input type="radio" name="radio1" value="Croissant">
+			</label>
+			<label>Décroissant
+				<input type="radio" name="radio1" value="Décroissant">
+			</label>
+		</div>
+
+		<div class="catalog">
+			{% for message in app.flashes('success') %}
+				<div class="alert alert-succes mt-4">
+					{{message}}
+				</div>
+
+			{% endfor %}
+			{% if not vehicles is same as([]) %}
+				<div class="vehicles">
+					{% for vehicle in vehicles %}
+						<div class="vehicle">
+							<img src={{asset('/images/uploads/vehicle/' ~ vehicle.image)}} alt="">
+							<p>
+								nom :
+								{{vehicle.name}}
+							</p>
+							<p>
+								prix :
+								{{vehicle.price}}
+							</p>
+							<a href={{"/vehicle/edit/" ~ vehicle.id}}>Editer</a>
+							<a href={{"/vehicle/delete/" ~ vehicle.id}}>Supprimer</a>
+
+						</div>
+					{% endfor %}
+
+
+				</div>
+				<div class="navigation">
+					{{ knp_pagination_render(vehicles) }}
+				</div>
+			{% else %}
+				<h4>Il n'y a pas de véhicules disponible !</h4>
+			{% endif %}
+		</div>
+	</div>
+
+
+{% endblock %}
+
