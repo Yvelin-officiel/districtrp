@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class VehicleController extends AbstractController
@@ -32,6 +33,7 @@ class VehicleController extends AbstractController
     }
 
     #[Route('/vehicle/nouveau', 'vehicle.new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function new(Request $request, EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
         $vehicle = new Vehicle();
@@ -79,6 +81,7 @@ class VehicleController extends AbstractController
     }
 
     #[Route('/vehicle/edit/{id}', 'vehicle.edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function edit(
         Request $request,
         EntityManagerInterface $manager,
@@ -108,11 +111,13 @@ class VehicleController extends AbstractController
                 }
                 $vehicle->setImage($newFilename);
 
-                $this->addFlash(
-                    'success',
-                    'Vehicule créé avec succès'
-                );
+                
             }
+
+            $this->addFlash(
+                'success',
+                'Vehicule modifié avec succès'
+            );
 
             $manager->persist($vehicle);
             $manager->flush();
@@ -127,6 +132,7 @@ class VehicleController extends AbstractController
     }
 
     #[Route('/vehicle/delete/{id}', 'vehicle.delete', methods: ['GET'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(EntityManagerInterface $manager, Vehicle $vehicle): Response
     {
 

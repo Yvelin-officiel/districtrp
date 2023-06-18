@@ -1,13 +1,14 @@
-nav *{
+nav * {
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     margin: 0;
 }
 
 nav {
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     position: fixed;
     width: 100%;
     background-color: #435ffd;
@@ -23,7 +24,8 @@ nav {
     text-transform: uppercase;
     padding: 15px 30px 15px 30px;
 }
-nav img{    
+
+nav img {
     margin-top: 5px;
     height: 35px;
     padding: 5px;
@@ -40,12 +42,18 @@ nav .widget:hover {
     color: rgb(255, 255, 255);
     background: #194ab4;
 }
+
 nav .widget:active {
     background-color: #2a00d4;
 }
 
 /* space for navbar to not cover new content */
-.space{
-height: 54px;
+.space {
+    height: 54px;
     width: auto;
 }
+
+nav #logout{
+    justify-self: flex-end;
+}
+

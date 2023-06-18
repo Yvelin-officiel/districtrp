@@ -19,7 +19,7 @@ class AppFixtures extends Fixture
             $vehicle = new Vehicle;
             $vehicle->setName('Vehicle ' .  $i)
                 ->setPrice(mt_rand(100, 1000))
-                -> setImage('public\images\uploads\vehicle\Look-at-me-648713d86c46d.png');
+                -> setImage('flamingo.png');
                 
 
             $manager->persist($vehicle);
@@ -27,8 +27,8 @@ class AppFixtures extends Fixture
 
         $user = new User();
         
-        $user->setUsername('user')
-        ->setRoles(['ROLE_USER'])
+        $user->setUsername('admin')
+        ->setRoles(['ROLE_ADMIN'])
         ->setPlainpassword('password');
 
         $manager->persist($user);

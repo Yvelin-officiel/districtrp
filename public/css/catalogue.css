@@ -7,6 +7,7 @@
     height: 100%;
 }
 
+
 /* Section filtre */
 .filtre {
     display: flex;
@@ -24,15 +25,31 @@ h3 {
 
 /* Section catalogue */
 .catalog {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
     width: 100%;
-    padding: 10px;
-    min-height: 100vh;
+
 }
 
+/* Alert message */
+.alert{
+    display: flex;
+    background-color: #04AA6D;
+    color: white;
+    font-family: Verdana,sans-serif;
+    font-size: 18px;
+height: 40px;
+}
+.alert p{
+    text-align: center;
+    align-self: center;
+    width: 100%;
+}
+
+/* Contain vehicles and pagination */
 .vehicles {
     display: flex;
     justify-content: center;
@@ -42,6 +59,7 @@ h3 {
 
 }
 
+/* Independant vehicle */
 .vehicle {
     display: flex;
     flex-direction: column;
@@ -51,20 +69,53 @@ h3 {
     border: solid 1px;
 }
 
-.vehicle img {
+.vehicle #vehiclePic {
     background-color: rgb(255, 255, 255);
     width: 300px;
     height: 250px;
     border-bottom: solid 1px;
 }
 
+.icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+    align-items: center;
+    position: absolute;
+    margin: 10px;
+    width: 35px;
+    height: 50px;
+}
+
+.icon {
+    transition: transform .2s;
+    width: 20px;
+    border-radius: 30%;
+    padding: 3px;
+
+    background-color: rgb(248, 255, 254);
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+.icons a {
+    width: 20px;
+    height: 20px;
+    text-decoration: none;
+}
+
 p {
     margin: 1px;
 }
 
-h4{
+h4 {
     align-self: center;
 }
+
+/* navigation */
 .navigation {
     align-self: center;
     padding: 5px;

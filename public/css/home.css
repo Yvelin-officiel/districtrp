@@ -1,0 +1,43 @@
+.blocVideo{
+    position: relative;
+    height: 94vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1000;
+}
+
+.blocVideo video{
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.parallax{
+    background-image: url("/images/DISTRICT-ALL-EMOTE-COLORS-57.png");
+    min-height: 700px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax img{
+    /* position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+.presentation{
+    height: 400px;
+    background-color: aquamarine;
+}
+
+p{
+    font: italic;
+}

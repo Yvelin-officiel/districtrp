@@ -1,9 +1,8 @@
 
-#footer{
-    width: 100%;
+.container{
+    min-height: 100vh;
+}
+footer{
     height: 150px;
-    bottom: 0px;
-    left: 0px;
     background-color: rgb(48, 47, 47);
-    margin-top: auto;
 }

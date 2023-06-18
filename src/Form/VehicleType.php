@@ -65,7 +65,7 @@ class VehicleType extends AbstractType
                 'attr' => [
                     'class' => 'btn btn-primary'
                 ],
-                'label' => 'Créer'
+                'label' => 'Valider'
             ]);
     }
 
