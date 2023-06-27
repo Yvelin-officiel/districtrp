@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
 use App\Entity\Vehicle;
+use App\Form\SearchType;
 use App\Form\VehicleType;
 use App\Repository\VehicleRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -21,18 +23,20 @@ class VehicleController extends AbstractController
     #[Route('/catalogue', name: 'vehicle.index', methods: ['GET'])]
     public function index(VehicleRepository $repository, PaginatorInterface $paginator, Request $request): Response
     {
-        $vehicles = $paginator->paginate(
-            $repository->findAll(),
-            $request->query->getInt('page', 1),
-            20
-        );
+        $data = new SearchData();
+        $data->page = $request->get('page', 1);
+        $form = $this->createForm(SearchType::class, $data);
+        $form->handleRequest($request);
+        $vehicles = $repository->findSearch($data);
+
 
         return $this->render('pages/vehicle/index.html.twig', [
-            'vehicles' => $vehicles
+            'vehicles' => $vehicles,
+            'form' => $form->createView()
         ]);
     }
 
-    #[Route('/vehicle/nouveau', 'vehicle.new', methods: ['GET', 'POST'])]
+    #[Route('/vehicle/add', 'vehicle.new', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_ADMIN')]
     public function new(Request $request, EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
@@ -152,7 +156,6 @@ class VehicleController extends AbstractController
         $manager->flush();
 
         return $this->redirectToRoute('vehicle.index');
-
 
     }
 }

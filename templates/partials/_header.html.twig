@@ -1,22 +1,19 @@
-<link rel="stylesheet" href="/css/_header.css">
-<nav>
-	<ul>
-		<li>
-			<a href="/"><img src="/images\DISTRICT_LOGOS_BRUTS_Plan_de_travail_1-01.png" alt="home"></a>
-		</li>
-		<li>
-			<a class="widget" href="/catalogue">Catalogue</a>
-		</li>
-		<li>
-			<a class="widget" href="https://districtrp.tebex.io/">Boutique</a>
-		</li>
-		<li>
-			<a class="widget" href="#">Discord</a>
-		</li>
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/_header.css">
+{% endblock %}
+<nav class="navbar navbar-dark bg-primary">
 
-	</ul>
+	<a class="navbar-logo" id="navbar-logo" href="/"><img src="/images\logos\navbar_logo.png" height="36" alt="home"></a>
+
+	<a class="navbar-brand mb-0 h1" href="/catalogue">Catalogue</a>
+
+	<a class="navbar-brand mb-0 h1" href="/serveur">Serveur</a>
+
+	<a class="navbar-brand mb-0 h1" href="https://districtrp.tebex.io/">Boutique</a>
+
+
 	{% if is_granted("ROLE_ADMIN") %}
-		<a class="widget" href="/deconnexion" id="logout">Déconnexion</a>
+		<a class="navbar-brand mb-0 h1" href="/deconnexion" id="logout">Déconnexion</a>
 	{% endif %}
 </nav>
-<div class="space"></div>
+

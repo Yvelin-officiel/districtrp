@@ -1,0 +1,24 @@
+<div class="card">
+
+	{% if is_granted("ROLE_ADMIN") %}
+		<div class="icons">
+			<a href={{"/vehicle/edit/" ~ vehicle.id}}>
+				<img class="icon" src="\images\icons\edit.png" alt="edit">
+			</a>
+			<a href={{"/vehicle/delete/" ~ vehicle.id}}>
+				<img class="icon" onclick="return confirm('Suppression de {{ vehicle.name }}')" src="\images\icons\delete.png" alt="edit">
+			</a>
+		</div>
+	{% endif %}
+
+	<img class="vehicle-img" src="{{ '/images/uploads/vehicle/' ~ vehicle.image }}" alt="">
+	<div class="card-body">
+        <h2>{{ vehicle.name }}</h2>
+        <h2>{{ vehicle.price }}</h2>
+		<div>
+			{% for c in vehicle.categories %}
+				<em class="text-muted text-primary text-italic">#{{ c.name }}</em>
+			{% endfor %}
+		</div>
+    </div>
+</div>

@@ -1,8 +1,56 @@
-
+/* For the footer to be below a screen long*/
 .container{
     min-height: 100vh;
+    max-width: 100%;
+    padding: 0;
 }
 footer{
-    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: rgb(48, 47, 47);
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+footer div{
+    align-items: center;
+}
+footer p, footer a{
+    text-align: center;
+    color: rgb(255, 255, 255, 0.7);
+
+}
+footer a{
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+#footer_top{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+
+}
+
+#navigation{
+    display: flex;
+    flex-direction: column;
+}
+
+#footer_bottom{
+    margin-right: 60px;
+    margin-left: 60px;
+    border-top: 1px solid;
+    color: rgb(255, 255, 255, 0.7);
+    padding: 10px;
+    
+}
+
+
+#socials img{
+    height: 20px;
 }

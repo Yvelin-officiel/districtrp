@@ -4,6 +4,15 @@
     width: 100%;
     overflow: hidden;
     z-index: -1000;
+
+}
+
+.opacity{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: rgb(0,0,0,0.5);
+    z-index: 1;
 }
 
 .blocVideo video{
@@ -22,22 +31,17 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.parallax img{
-    /* position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+    
 }
 
 .presentation{
-    height: 400px;
-    background-color: aquamarine;
+    padding: 3em;
+    min-height: 400px;
+    background-color: rgba(255, 166, 0, 0.7);
 }
 
-p{
-    font: italic;
+.presentation p{
+    z-index: 2;
+    margin: 0;
+    font-style: italic;
 }

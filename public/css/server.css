@@ -1,0 +1,9 @@
+.infos h1{
+    text-align: center;
+}
+.discord {
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 5em;
+}

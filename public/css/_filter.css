@@ -1,0 +1,13 @@
+.filter-container{
+    min-width: 250px;
+
+
+}
+.filter{
+    display: block;
+    position: sticky;
+    top: 5em;
+    margin: 10px;
+    margin-left: 20px;
+}
+
